@@ -1,0 +1,17 @@
+# Flutter / Dart projeleri için dil ayarları
+
+# Dart dosyalarını Dart olarak işaretle
+*.dart linguist-language=Dart
+
+# Android / iOS dosyaları için
+*.java linguist-language=Java
+*.kt linguist-language=Kotlin
+*.xml linguist-language=XML
+*.gradle linguist-language=Groovy
+*.swift linguist-language=Swift
+*.m linguist-language=Objective-C
+*.h linguist-language=Objective-C
+
+# Diğer dosyalar (opsiyonel)
+*.md linguist-language=Markdown
+*.yaml linguist-language=YAML

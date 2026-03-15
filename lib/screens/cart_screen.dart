@@ -20,47 +20,88 @@ class _CartScreenState extends State<CartScreen> {
       appBar: AppBar(
         title: const Text("Cart"),
       ),
+
       body: items.isEmpty
           ? const Center(child: Text("Cart is empty"))
-          : ListView.builder(
-              itemCount: items.length,
-              itemBuilder: (context, index) {
+          : Column(
+              children: [
 
-                Product product = items[index].key;
-                int qty = items[index].value;
+                /// Ürün Listesi
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: items.length,
+                    itemBuilder: (context, index) {
 
-                return ListTile(
-                  leading: Image.network(product.image, width: 50),
-                  title: Text(product.title),
-                  subtitle: Text("\$${product.price}  x  $qty"),
+                      Product product = items[index].key;
+                      int qty = items[index].value;
 
-                  trailing: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
+                      return ListTile(
+                        leading: Image.network(product.image, width: 50),
+                        title: Text(product.title),
+                        subtitle: Text("\$${product.price}  x  $qty"),
 
-                      IconButton(
-                        icon: const Icon(Icons.remove),
-                        onPressed: () {
-                          setState(() {
-                            CartService.removeFromCart(product);
-                          });
-                        },
-                      ),
+                        trailing: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
 
-                      Text(qty.toString()),
+                            IconButton(
+                              icon: const Icon(Icons.remove),
+                              onPressed: () {
+                                setState(() {
+                                  CartService.removeFromCart(product);
+                                });
+                              },
+                            ),
 
-                      IconButton(
-                        icon: const Icon(Icons.add),
-                        onPressed: () {
-                          setState(() {
-                            CartService.addToCart(product);
-                          });
-                        },
-                      ),
-                    ],
+                            Text(qty.toString()),
+
+                            IconButton(
+                              icon: const Icon(Icons.add),
+                              onPressed: () {
+                                setState(() {
+                                  CartService.addToCart(product);
+                                });
+                              },
+                            ),
+                          ],
+                        ),
+                      );
+                    },
                   ),
-                );
-              },
+                ),
+
+                /// CHECKOUT BUTONU
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: SizedBox(
+                    width: double.infinity,
+                    height: 50,
+                    child: ElevatedButton(
+                      onPressed: items.isEmpty
+                          ? null
+                          : () {
+                              // Demo: checkout işlemi
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text("Checkout completed!"),
+                                  duration: Duration(seconds: 1),
+                                ),
+                              );
+
+                              // Sepeti temizle
+                              setState(() {
+                                CartService.cartItems.clear();
+                                CartService.cartCount.value = 0;
+                              });
+                            },
+                      child: const Text(
+                        "Checkout",
+                        style: TextStyle(fontSize: 18),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
     );
   }

@@ -1,16 +1,32 @@
-# mini_katalog
+# Mini Katalog Uygulaması
 
-A new Flutter project.
+**Kısa Açıklama:**  
+Flutter kullanılarak geliştirilmiş basit bir mobil katalog uygulamasıdır.  
+- Ürün listesi ve detay ekranı  
+- Sepet ve checkout sistemi  
+- Arama çubuğu ve banner görseli
 
-## Getting Started
+**Kullanılan Flutter Sürümü:**  
+Flutter 3.38.9 (stable)  
+**Dart Sürümü:** Dart 3.10.8
 
-This project is a starting point for a Flutter application.
+## Çalıştırma Adımları
 
-A few resources to get you started if this is your first Flutter project:
+1. Flutter SDK kurulu olmalı  
+2. Terminalde proje klasörüne git  
+3. Paketleri yükle:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+    flutter pub get
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+4. Emulator veya cihazı başlat  
+5. Uygulamayı çalıştır:
+
+    flutter run
+
+
+## Ekran Görüntüleri (Screenshots)
+
+![Home Screen](screenshots/home_screen.jpg)  
+![Product Detail](screenshots/product_detail_screen.jpg)
+![Product Card](screenshots/product_card.jpg)  
+![Cart Screen](screenshots/cart_screen.jpg)

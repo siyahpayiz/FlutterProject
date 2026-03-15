@@ -1,9 +1,13 @@
-# Flutter / Dart projeleri için dil ayarları
+# Flutter / Dart projeleri için GitHub dil ayarları
 
-# Dart dosyalarını Dart olarak işaretle
+# Tüm Dart dosyalarını Dart olarak işaretle
 *.dart linguist-language=Dart
 
-# Android / iOS dosyaları için
+# Android / iOS klasörleri için
+android/** linguist-language=Java
+ios/** linguist-language=Swift
+
+# Diğer platform dosyaları
 *.java linguist-language=Java
 *.kt linguist-language=Kotlin
 *.xml linguist-language=XML
@@ -12,6 +16,7 @@
 *.m linguist-language=Objective-C
 *.h linguist-language=Objective-C
 
-# Diğer dosyalar (opsiyonel)
+# Dokümantasyon ve config
 *.md linguist-language=Markdown
 *.yaml linguist-language=YAML
+*.yml linguist-language=YAML
